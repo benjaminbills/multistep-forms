@@ -19,10 +19,10 @@ const FormPage = () => {
             <Steps />
           </div>
           <div className='ml-[4em] mr-[4em] mt-8  mb-8 flex flex-col container w-[600px]'>
-            <FormSteps step={step} />
-            <div className='mt-auto'>
+            <FormSteps step={step} handleNext={nextPage} handleBack={goBack} />
+            {/* <div className='mt-auto'>
               <ControlButton handleNext={nextPage} handleBack={goBack} />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

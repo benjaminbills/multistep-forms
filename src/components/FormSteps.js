@@ -4,14 +4,14 @@ import Plan from './Plan';
 import Summary from './Summary';
 import ThankYou from './ThankYou';
 
-const FormSteps = ({ step }) => {
+const FormSteps = ({ step, handleNext, handleBack }) => {
   switch (step) {
     case 1:
-      return <PersonalInfo />;
+      return <PersonalInfo handleNext={handleNext} handleBack={handleBack} />;
     case 2:
-      return <Plan />;
+      return <Plan handleNext={handleNext} handleBack={handleBack} />;
     case 3:
-      return <AddOns />;
+      return <AddOns handleNext={handleNext} handleBack={handleBack} />;
     case 4:
       return <Summary />;
     case 5:
