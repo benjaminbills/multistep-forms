@@ -79,15 +79,11 @@ const PersonalInfo = ({ handleNext, handleBack }) => {
         </div>
         <div className='absolute bottom-0 w-full'>
           <div className='flex'>
-            <button
-            // onClick={backPage}
-            >
-              Go Back
-            </button>
+            <span></span>
             <button
               onClick={handleSubmit}
               type='submit'
-              className='text-white bg-marineblue rounded p-2 ml-auto'
+              className='text-white bg-marineblue rounded w-[100px] p-2 ml-auto'
             >
               Next Step
             </button>

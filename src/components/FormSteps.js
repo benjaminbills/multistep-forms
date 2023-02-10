@@ -13,7 +13,7 @@ const FormSteps = ({ step, handleNext, handleBack }) => {
     case 3:
       return <AddOns handleNext={handleNext} handleBack={handleBack} />;
     case 4:
-      return <Summary />;
+      return <Summary handleNext={handleNext} handleBack={handleBack} />;
     case 5:
       return <ThankYou />;
     default:

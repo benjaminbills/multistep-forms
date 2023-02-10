@@ -1,6 +1,7 @@
-import { useState } from 'react';
-
-const Summary = () => {
+import { useState, useContext } from 'react';
+import { FormContext } from '../Context/FormContext';
+const Summary = ({ handleBack }) => {
+  const { formState, setFormState } = useContext(FormContext);
   const [confirm, setconfirm] = useState(false);
   return (
     <>
@@ -9,20 +10,47 @@ const Summary = () => {
           <h1 className='text-2xl font-semibold text-marineblue'>
             Finishing up
           </h1>
-          <label className='text-sm text-coolgray'>
+          <label className='text-sm text-coolgray mt-4'>
             Double-check everything looks OK before confirming.
           </label>
+          <div className='bg-magnolia rounded mt-8 p-12'>
+            <div className='flex items-center pt-4'>
+              <div className='flex flex-col justify-start'>
+                <p className='text-marineblue font-semibold'>
+                  {formState.plans.name} (
+                  {formState.yearlyOrMonthly ? 'Yearly' : 'Monthly'})
+                </p>
+                <button className='inline-flex contain underline text-coolgray'>
+                  Change
+                </button>
+              </div>
+              <p className='ml-auto text-marineblue font-semibold'>$90/yr</p>
+            </div>
+            <hr className='mt-4 mb-4' />
+            {formState.addOns.map((addOn) => (
+              <div className='flex'>
+                <p className='text-coolgray'>{addOn.service}</p>
+                <span className='text-marineblue ml-auto'>+$1/mo</span>
+              </div>
+            ))}
+            <div className='flex'>
+              <p className='text-coolgray'>Larger storage</p>
+              <span className='text-marineblue ml-auto'>+$2/mo</span>
+            </div>
+          </div>
+          <div className='flex pt-8'>
+            <p className='text-coolgray '>Total(per year)</p>
+            <p className='ml-auto font-semibold text-purplishblue'>$120/yr</p>
+          </div>
           <div className='absolute bottom-0 w-full'>
             <div className='flex'>
-              <button
-              // onClick={backPage}
-              >
+              <button onClick={handleBack} className='text-coolgray'>
                 Go Back
               </button>
               <button
                 onClick={() => setconfirm(true)}
                 // type='submit'
-                className='text-white bg-marineblue rounded p-2 ml-auto'
+                className='text-white w-[100px] bg-purplishblue rounded p-2 ml-auto'
               >
                 Confirm
               </button>

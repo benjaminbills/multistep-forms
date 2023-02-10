@@ -9,7 +9,8 @@ export const FormStateProvider = ({ children }) => {
       email: '',
       phone: '',
     },
-    plans: [],
+    plans: { amount: '12', name: 'Arcade', id: '1' },
+    yearlyOrMonthly: false,
     addOns: [],
     fieldErrors: {},
   });
