@@ -11,7 +11,7 @@ const AddOns = ({ handleNext, handleBack }) => {
         Add-ons help enhance your gaming experience.
       </label>
       <div className='pt-8 flex flex-col'>
-        <div className='border flex rounded-lg h-[60px] p-4 mb-2'>
+        <div className='border flex rounded-lg h-[60px] p-4 mb-3'>
           <input type={'checkbox'} />
           <div className='flex flex-col justify-center align-center pl-4'>
             <p className='text-marineblue'>Online Service</p>
@@ -19,10 +19,28 @@ const AddOns = ({ handleNext, handleBack }) => {
               Access to multiplayer games
             </label>
           </div>
-          <p className='ml-auto'>+$1/mo</p>
+          <p className='ml-auto text-purplishblue'>+$1/mo</p>
         </div>
-        <div></div>
-        <div>I</div>
+        <div className='border flex rounded-lg h-[60px] p-4 mb-3'>
+          <input type={'checkbox'} />
+          <div className='flex flex-col justify-center align-center pl-4'>
+            <p className='text-marineblue'>Larger Storage</p>
+            <label className='text-coolgray text-sm'>
+              Extra 1TB of cloud save
+            </label>
+          </div>
+          <p className='ml-auto text-purplishblue'>+$2/mo</p>
+        </div>
+        <div className='border flex rounded-lg h-[60px] p-4 mb-3'>
+          <input type={'checkbox'} />
+          <div className='flex flex-col justify-center align-center pl-4'>
+            <p className='text-marineblue'>CustomizableProfile</p>
+            <label className='text-coolgray text-sm'>
+              Custom theme on your profile
+            </label>
+          </div>
+          <p className='ml-auto text-purplishblue'>+$2/mo</p>
+        </div>
       </div>
       <div className='absolute bottom-0 w-full'>
         <div className='flex'>

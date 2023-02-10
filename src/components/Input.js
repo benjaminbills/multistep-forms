@@ -1,30 +1,29 @@
 import { useContext } from 'react';
 import { FormContext } from '../Context/FormContext';
 
-const Input = ({ title, type, required, error, errorMessage, name, value }) => {
-  const { formState, setFormState } = useContext(FormContext);
-
-  const validate = (field) => {
-    console.log(field.name);
-    const errors = {};
-    if (!field.name) errors.name = 'Name Required';
-    if (!field.email) errors.email = 'Email Required';
-    if (!field.phone) errors.phone = 'Email Required';
-
-    return errors;
-  };
+const Input = ({
+  title,
+  type,
+  required,
+  errorMessage,
+  name,
+  value,
+  validate,
+  onChange,
+}) => {
   const handleChange = (e) => {
     let { value, name } = e.target;
-    // const error = validate ? validate(value) : false;
-    setFormState({ ...formState, [name]: value, error });
+    const error = validate ? validate(value) : false;
+    onChange({ value, error, name });
+    // setFormState({ ...formState, [name]: value, error });
   };
   return (
     <div className='flex flex-col text-marineblue'>
       <div className='flex'>
         <label className='text-sm'>{title}</label>
-        {error && (
-          <p className='ml-auto text-red-500 text-sm '>{errorMessage}</p>
-        )}
+        {/* {error && ( */}
+        <p className='ml-auto text-red-500 text-sm '>{errorMessage}</p>
+        {/* )} */}
       </div>
       <input
         onChange={handleChange}

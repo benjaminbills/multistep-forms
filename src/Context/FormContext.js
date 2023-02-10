@@ -9,9 +9,9 @@ export const FormStateProvider = ({ children }) => {
       email: '',
       phone: '',
     },
-    fieldErrors: {},
     plans: [],
     addOns: [],
+    fieldErrors: {},
   });
   return (
     <FormContextProvider value={{ formState, setFormState }}>
