@@ -3,6 +3,24 @@ import { FormContext } from '../Context/FormContext';
 const Summary = ({ handleBack }) => {
   const { formState, setFormState } = useContext(FormContext);
   const [confirm, setconfirm] = useState(false);
+  const total = () => {
+    const allTot = Number(formState.plans.amount);
+    console.log(allTot);
+    let additional = 0;
+    if (!formState.yearlyOrMonthly) {
+      for (let i = 0; i < formState.addOns.length; i++) {
+        additional += parseInt(formState.addOns[i].monthlyPrice);
+        console.log(additional);
+      }
+    } else {
+      for (let i = 0; i < formState.addOns.length; i++) {
+        additional += parseInt(formState.addOns[i].yearlyPrice);
+        console.log(additional);
+      }
+    }
+    console.log(additional);
+    return allTot + additional;
+  };
   return (
     <>
       {!confirm ? (
@@ -24,23 +42,29 @@ const Summary = ({ handleBack }) => {
                   Change
                 </button>
               </div>
-              <p className='ml-auto text-marineblue font-semibold'>$90/yr</p>
+              <p className='ml-auto text-marineblue font-semibold'>
+                ${formState.plans.amount}/yr
+              </p>
             </div>
             <hr className='mt-4 mb-4' />
             {formState.addOns.map((addOn) => (
               <div className='flex'>
                 <p className='text-coolgray'>{addOn.service}</p>
-                <span className='text-marineblue ml-auto'>+$1/mo</span>
+                <span className='text-marineblue ml-auto'>
+                  +$
+                  {!formState.yearlyOrMonthly
+                    ? addOn.monthlyPrice
+                    : addOn.yearlyPrice}
+                  /{!formState.yearlyOrMonthly ? 'mo' : 'yr'}
+                </span>
               </div>
             ))}
-            <div className='flex'>
-              <p className='text-coolgray'>Larger storage</p>
-              <span className='text-marineblue ml-auto'>+$2/mo</span>
-            </div>
           </div>
           <div className='flex pt-8'>
-            <p className='text-coolgray '>Total(per year)</p>
-            <p className='ml-auto font-semibold text-purplishblue'>$120/yr</p>
+            <p className='text-coolgray '>Total (per year)</p>
+            <p className='ml-auto font-semibold text-purplishblue'>
+              ${total()}/yr
+            </p>
           </div>
           <div className='absolute bottom-0 w-full'>
             <div className='flex'>
