@@ -12,7 +12,8 @@ export const FormStateProvider = ({ children }) => {
     plans: {
       id: '1',
       name: 'Arcade',
-      monthlyValue: 9,
+      monthlyValue: 12,
+      yearlyValue: 90,
     },
     yearlyOrMonthly: false,
     addOns: [],

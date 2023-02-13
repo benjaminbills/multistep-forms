@@ -64,7 +64,9 @@ const AddOns = ({ handleNext, handleBack }) => {
             <input
               type={'checkbox'}
               // checked={true}
-              checked={formState.addOns.find((item) => item.id === addOn.id)}
+              checked={
+                formState.addOns.find((item) => item.id === addOn.id) || false
+              }
               onChange={() => handleAddOnSelect(addOn.id)}
             />
             <div className='flex flex-col justify-center align-center pl-4'>

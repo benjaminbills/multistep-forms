@@ -4,8 +4,9 @@ const Summary = ({ handleBack }) => {
   const { formState, setFormState } = useContext(FormContext);
   const [confirm, setconfirm] = useState(false);
   const total = () => {
-    const allTot = Number(formState.plans.amount);
-    console.log(allTot);
+    const allTot = formState.yearlyOrMonthly
+      ? Number(formState.plans.yearlyValue)
+      : Number(formState.plans.monthlyValue);
     let additional = 0;
     if (!formState.yearlyOrMonthly) {
       for (let i = 0; i < formState.addOns.length; i++) {
@@ -18,7 +19,6 @@ const Summary = ({ handleBack }) => {
         console.log(additional);
       }
     }
-    console.log(additional);
     return allTot + additional;
   };
   return (
@@ -43,12 +43,16 @@ const Summary = ({ handleBack }) => {
                 </button>
               </div>
               <p className='ml-auto text-marineblue font-semibold'>
-                ${formState.plans.amount}/yr
+                $
+                {!formState.yearlyOrMonthly
+                  ? formState.plans.monthlyValue
+                  : formState.plans.yearlyValue}
+                /{!formState.yearlyOrMonthly ? 'mo' : 'yr'}
               </p>
             </div>
             <hr className='mt-4 mb-4' />
             {formState.addOns.map((addOn) => (
-              <div className='flex'>
+              <div key={addOn.id} className='flex'>
                 <p className='text-coolgray'>{addOn.service}</p>
                 <span className='text-marineblue ml-auto'>
                   +$
@@ -61,9 +65,11 @@ const Summary = ({ handleBack }) => {
             ))}
           </div>
           <div className='flex pt-8'>
-            <p className='text-coolgray '>Total (per year)</p>
+            <p className='text-coolgray '>
+              Total (per {!formState.yearlyOrMonthly ? 'month' : 'year'})
+            </p>
             <p className='ml-auto font-semibold text-purplishblue'>
-              ${total()}/yr
+              ${total()}/{!formState.yearlyOrMonthly ? 'mo' : 'yr'}
             </p>
           </div>
           <div className='absolute bottom-0 w-full'>
