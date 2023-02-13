@@ -4,7 +4,7 @@ import { FormContext } from '../Context/FormContext';
 const AddOns = ({ handleNext, handleBack }) => {
   const { formState, setFormState } = useContext(FormContext);
 
-  const addOns = [
+  const addOnsC = [
     {
       service: 'Online Service',
       advantage: 'Access to multiplayer games',
@@ -32,28 +32,25 @@ const AddOns = ({ handleNext, handleBack }) => {
     console.log(formState);
     handleNext();
   };
+
   const handleAddOnSelect = (id) => {
-    const selectedAddOn = addOns.find((addOn) => addOn.id === id);
+    const selectedAddOn = addOnsC.find((addOn) => addOn.id === id);
     console.log(selectedAddOn);
-    const allAddOns = [...formState.addOns];
-    console.log(allAddOns);
-    if (
-      formState.addOns.find((addOn) => addOn.id === selectedAddOn.id) ===
-      undefined
-    ) {
-      setFormState({ ...formState, addOns: allAddOns.concat(selectedAddOn) });
+    if (formState.addOns.find((obj) => obj.id === id)) {
+      setFormState({
+        ...formState,
+        addOns: formState.addOns.filter((addOn) => addOn.id !== id),
+      });
     } else {
       setFormState({
         ...formState,
-        addOns: allAddOns.splice(selectedAddOn.id, 1),
+        addOns: [...formState.addOns, selectedAddOn],
       });
     }
   };
 
   const checked = (id) => {
-    let checking = formState.addOns.find((el) => el.id === id);
-    console.log(checking);
-    return checking;
+    return formState.addOns.find((obj) => obj.id === id);
   };
   return (
     // sm:relative h-[100%] pt-8 pb-8 pl-6 pr-6 sm:pt-0
@@ -64,7 +61,7 @@ const AddOns = ({ handleNext, handleBack }) => {
         Add-ons help enhance your gaming experience.
       </label>
       <div className='pt-8 flex flex-col'>
-        {addOns.map((addOn) => (
+        {addOnsC.map((addOn) => (
           <label
             key={addOn.id}
             className={`'border flex items-center rounded-lg h-[60px] p-2 mb-3 cursor-pointer' ${

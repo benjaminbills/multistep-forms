@@ -17,6 +17,9 @@ module.exports = {
       fontFamily: {
         ubuntu: ['Ubuntu'],
       },
+      screens: {
+        sm: '600px',
+      },
     },
   },
   plugins: [],
