@@ -20,7 +20,7 @@ const AddOns = ({ handleNext, handleBack }) => {
       yearlyPrice: 20,
     },
     {
-      service: 'CustomizableProfile',
+      service: 'Customizable profile',
       advantage: 'Custom theme on your profile',
       id: '3',
       monthlyPrice: 2,
@@ -49,8 +49,16 @@ const AddOns = ({ handleNext, handleBack }) => {
       });
     }
   };
+
+  const checked = (id) => {
+    let checking = formState.addOns.find((el) => el.id === id);
+    console.log(checking);
+    return checking;
+  };
   return (
-    <div className='relative h-[100%]'>
+    // sm:relative h-[100%] pt-8 pb-8 pl-6 pr-6 sm:pt-0
+
+    <div className='sm:relative h-[100%] pt-8 pb-8 pl-6 pr-6 sm:pt-0 font-medium'>
       <h1 className='text-2xl font-semibold text-marineblue'>Pick add-ons</h1>
       <label className='text-sm text-coolgray'>
         Add-ons help enhance your gaming experience.
@@ -59,11 +67,13 @@ const AddOns = ({ handleNext, handleBack }) => {
         {addOns.map((addOn) => (
           <label
             key={addOn.id}
-            className='border flex rounded-lg h-[60px] p-4 mb-3 cursor-pointer'
+            className={`'border flex items-center rounded-lg h-[60px] p-2 mb-3 cursor-pointer' ${
+              checked(addOn.id) ? 'checked bg-lightgray' : 'border'
+            }`}
           >
             <input
               type={'checkbox'}
-              // checked={true}
+              className='w-4 h-4 text-green-900'
               checked={
                 formState.addOns.find((item) => item.id === addOn.id) || false
               }
@@ -71,9 +81,9 @@ const AddOns = ({ handleNext, handleBack }) => {
             />
             <div className='flex flex-col justify-center align-center pl-4'>
               <p className='text-marineblue'>{addOn.service}</p>
-              <p className='text-coolgray text-sm'>{addOn.advantage}</p>
+              <p className='text-coolgray text-xs'>{addOn.advantage}</p>
             </div>
-            <p className='ml-auto text-purplishblue'>
+            <p className='ml-auto text-purplishblue text-sm'>
               +$
               {!formState.yearlyOrMonthly
                 ? addOn.monthlyPrice
@@ -83,7 +93,8 @@ const AddOns = ({ handleNext, handleBack }) => {
           </label>
         ))}
       </div>
-      <div className='absolute bottom-0 w-full'>
+      {/* fixed p-4 bg-white sm:p-4 sm:absolute bottom-0 left-0  w-full */}
+      <div className='fixed p-4 sm:p-6 bg-white sm:absolute bottom-0 left-0  w-full'>
         <div className='flex'>
           <button onClick={handleBack} className='text-coolgray'>
             Go Back

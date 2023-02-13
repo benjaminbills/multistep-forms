@@ -112,14 +112,15 @@ const Plan = ({ handleNext, handleBack }) => {
     return checking;
   };
   return (
-    <div className='relative h-[100%]'>
+    // sm:relative h-[100%] pt-8 pb-8 pl-6 pr-6 sm:pt-0
+    <div className='sm:relative h-[100%] pt-8 sm:pt-0 pb-8 pl-6 pr-6 sm:pt-0 font-medium'>
       <h1 className='text-2xl font-semibold text-marineblue'>
         Select your plan
       </h1>
-      <label className='text-sm text-coolgray'>
+      <label className='text-sm text-coolgray '>
         You have the option of monthly or yearly billing.
       </label>
-      <div className='pt-8 grid grid-cols-3 gap-6 w-full'>
+      <div className='pt-4 sm:pt-8 grid sm:grid-cols-3 gap-3 sm:gap-6 w-full'>
         {plans.map((plan) => (
           <div key={plan.id}>
             <input
@@ -130,13 +131,13 @@ const Plan = ({ handleNext, handleBack }) => {
               onClick={() => handlePlanSelect(plan.id, plan.name)}
             />
             <label
-              className={`cursor-pointer  flex flex-col h-full border h-[200px] rounded-lg p-3 ${
-                check(plan.id) ? 'checked' : ''
+              className={`cursor-pointer flex sm:flex-col  border sm:h-[150px] min-w-[125px] rounded-lg p-2 ${
+                check(plan.id) ? 'checked bg-lightgray' : ''
               }`}
               htmlFor={plan.id}
             >
               <span>{plan.svg}</span>
-              <div className='mt-auto'>
+              <div className='pl-4 sm:mt-auto sm:pl-0'>
                 <p className='text-marineblue font-semibold'>{plan.name}</p>
                 <p className='text-coolgray text-sm'>
                   $
@@ -155,7 +156,7 @@ const Plan = ({ handleNext, handleBack }) => {
       </div>
 
       <div className='bg-magnolia mt-4 rounded-lg'>
-        <div className='flex items-center justify-center w-full mb-12 p-2'>
+        <div className='flex items-center justify-center w-full sm:mb-12 p-2'>
           <label htmlFor='toggleB' className='flex items-center cursor-pointer'>
             <div
               className={`ml-3 text-gray-700 mr-8 font-medium ${
@@ -187,8 +188,8 @@ const Plan = ({ handleNext, handleBack }) => {
           </label>
         </div>
       </div>
-
-      <div className='absolute bottom-0 w-full'>
+      {/* fixed p-4 bg-white sm:p-4 sm:absolute bottom-0 left-0  w-full */}
+      <div className='fixed p-4 sm:p-6 bg-white sm:absolute bottom-0 left-0  w-full'>
         <div className='flex'>
           <button onClick={handleBack} className='text-coolgray'>
             Go Back

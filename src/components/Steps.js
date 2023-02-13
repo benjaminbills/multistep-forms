@@ -1,8 +1,8 @@
 const Steps = ({ activeIndex }) => {
   return (
-    <div className='pl-8 pt-4'>
-      <ul className='list-none uppercase'>
-        <li className='inline-flex items-center text-xs mt-6 '>
+    <div className='sm:pl-8 sm:pt-4 pt-6 pl-8 pr-8 flex justify-center'>
+      <div className=' flex flex-row align-center justify-between sm:flex-col uppercase w-[80%] sm:w-full'>
+        <div className='inline-flex items-center text-xs sm:mt-6 '>
           <span
             className={`'flex items-center justify-center font-bold  content-center h-[40px] w-[40px] border rounded-[50%] ' ${
               activeIndex === 1
@@ -12,12 +12,12 @@ const Steps = ({ activeIndex }) => {
           >
             1
           </span>
-          <span className='inline-flex pl-4 flex-col'>
+          <span className='pl-4 flex-col hidden sm:inline-flex'>
             <span className='coolgray text-coolgray'>Step 1</span>
             <span className='font-semibold text-white'>Your Info</span>
           </span>
-        </li>
-        <li className='inline-flex items-center text-xs mt-6'>
+        </div>
+        <div className='inline-flex items-center text-xs sm:mt-6'>
           <span
             className={`'flex items-center justify-center font-bold content-center h-[40px] w-[40px] border rounded-[50%] '  ${
               activeIndex === 2
@@ -27,12 +27,12 @@ const Steps = ({ activeIndex }) => {
           >
             2
           </span>
-          <span className='inline-flex pl-4 flex-col'>
+          <span className='pl-4 flex-col hidden sm:inline-flex'>
             <span className='coolgray text-coolgray'>Step 2</span>
             <span className='font-semibold text-white'>Select plan</span>
           </span>
-        </li>
-        <li className='inline-flex items-center text-xs mt-6'>
+        </div>
+        <div className='inline-flex items-center text-xs sm:mt-6'>
           <span
             className={`'flex items-center justify-center font-bold  content-center h-[40px] w-[40px] border rounded-[50%] '  ${
               activeIndex === 3
@@ -42,29 +42,27 @@ const Steps = ({ activeIndex }) => {
           >
             3
           </span>
-          <span className='inline-flex pl-4 flex-col'>
+          <span className=' pl-4 flex-col hidden sm:inline-flex'>
             <span className='coolgray text-coolgray'>Step 3</span>
             <span className='font-semibold text-white'>Add-ons</span>
           </span>
-        </li>
-        <li className='items-center text-xs mt-6'>
-          <p className='inline-flex'>
-            <span
-              className={`'flex items-center justify-center font-bold  content-center h-[40px] w-[40px] border rounded-[50%] '  ${
-                activeIndex === 4
-                  ? 'flex items-center bg-lightblue'
-                  : 'flex items-center text-white'
-              }`}
-            >
-              4
-            </span>
-            <span className='inline-flex pl-4 flex-col'>
-              <span className='coolgray text-coolgray'>Step 4</span>
-              <span className='font-semibold text-white'>Summary</span>
-            </span>
-          </p>
-        </li>
-      </ul>
+        </div>
+        <div className='inline-flex items-center text-xs sm:mt-6'>
+          <span
+            className={`'flex items-center justify-center font-bold  content-center h-[40px] w-[40px] border rounded-[50%] '  ${
+              activeIndex === 4
+                ? 'flex items-center bg-lightblue text-black-900'
+                : 'flex items-center text-white'
+            }`}
+          >
+            4
+          </span>
+          <span className=' pl-4 flex-col hidden sm:inline-flex'>
+            <span className='coolgray text-coolgray'>Step 4</span>
+            <span className='font-semibold text-white'>Summary</span>
+          </span>
+        </div>
+      </div>
     </div>
   );
 };

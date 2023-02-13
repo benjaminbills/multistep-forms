@@ -17,12 +17,12 @@ const FormPage = () => {
   };
   return (
     <div className='w-full'>
-      <div className='flex mx-auto my-auto pt-12'>
-        <div className='flex border rounded-xl p-3 justify-center mx-auto my-auto bg-white '>
-          <div className=' bg-[url("/public/assets/images/bg-sidebar-desktop.svg")] h-[568px] min-w-[274px]'>
+      <div className='flex m-auto '>
+        <div className='relative sm:border rounded-xl sm:p-3 justify-center mx-auto my-auto sm:bg-white sm:flex sm:flex-row'>
+          <div className=' sm:bg-[url("/public/assets/images/bg-sidebar-desktop.svg")] min-h-[172px] bg-cover sm:h-[568px] sm:min-w-[274px] bg-[url("/public/assets/images/bg-sidebar-mobile.svg")] z-0'>
             <Steps activeIndex={step} />
           </div>
-          <div className='ml-[4em] mr-[4em] mt-8  mb-8 flex flex-col container max-w-[600px]'>
+          <div className='sm:ml-[2em] ml-4 z-10 sm:mr-[2em] mr-4 sm:mt-8 mt-[-5em] mb-8 sm:mb-0 md:max-w-[600px] bg-white rounded-xl '>
             <FormSteps
               step={step}
               handleNext={nextPage}

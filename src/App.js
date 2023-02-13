@@ -3,10 +3,12 @@ import { FormStateProvider } from './Context/FormContext';
 import FormPage from './pages/FormPage';
 function App() {
   return (
-    <div className='h-screen bg-lightgray font-ubuntu'>
-      <FormStateProvider>
-        <FormPage />
-      </FormStateProvider>
+    <div className='h-screen flex bg-lightgray font-ubuntu'>
+      <div className='mx-auto sm:my-auto'>
+        <FormStateProvider>
+          <FormPage />
+        </FormStateProvider>
+      </div>
     </div>
   );
 }

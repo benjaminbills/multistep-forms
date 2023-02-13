@@ -32,8 +32,8 @@ const PersonalInfo = ({ handleNext, handleBack }) => {
     handleNext();
   };
   return (
-    <div className='relative h-[100%]'>
-      <h1 className='text-2xl font-semibold text-marineblue'>Personal info</h1>
+    <div className='sm:relative h-[100%] pt-8 pb-8 pl-6 pr-6 sm:pt-0 '>
+      <h1 className='text-2xl  font-semibold text-marineblue'>Personal info</h1>
       <label className='text-sm text-coolgray'>
         Please provide your name, email address, and phone number.
       </label>
@@ -77,7 +77,7 @@ const PersonalInfo = ({ handleNext, handleBack }) => {
             value={formState.fields.phone}
           />
         </div>
-        <div className='absolute bottom-0 w-full'>
+        <div className='fixed p-4 bg-white sm:p-6 sm:absolute bottom-0 left-0  w-full'>
           <div className='flex'>
             <span></span>
             <button
