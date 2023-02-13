@@ -11,15 +11,24 @@ const FormPage = () => {
   const nextPage = () => {
     setStep(step + 1);
   };
+  const goToCom = (page) => {
+    console.log('here');
+    setStep(page);
+  };
   return (
     <div className='w-full'>
       <div className='flex mx-auto my-auto pt-12'>
         <div className='flex border rounded-xl p-3 justify-center mx-auto my-auto bg-white '>
           <div className=' bg-[url("/public/assets/images/bg-sidebar-desktop.svg")] h-[568px] w-[274px]'>
-            <Steps />
+            <Steps activeIndex={step} />
           </div>
           <div className='ml-[4em] mr-[4em] mt-8  mb-8 flex flex-col container w-[600px]'>
-            <FormSteps step={step} handleNext={nextPage} handleBack={goBack} />
+            <FormSteps
+              step={step}
+              handleNext={nextPage}
+              handleBack={goBack}
+              handleGoToCom={goToCom}
+            />
             {/* <div className='mt-auto'>
               <ControlButton handleNext={nextPage} handleBack={goBack} />
             </div> */}

@@ -4,7 +4,7 @@ import Plan from './Plan';
 import Summary from './Summary';
 import ThankYou from './ThankYou';
 
-const FormSteps = ({ step, handleNext, handleBack }) => {
+const FormSteps = ({ step, handleNext, handleBack, handleGoToCom }) => {
   switch (step) {
     case 1:
       return <PersonalInfo handleNext={handleNext} handleBack={handleBack} />;
@@ -13,7 +13,13 @@ const FormSteps = ({ step, handleNext, handleBack }) => {
     case 3:
       return <AddOns handleNext={handleNext} handleBack={handleBack} />;
     case 4:
-      return <Summary handleNext={handleNext} handleBack={handleBack} />;
+      return (
+        <Summary
+          handleNext={handleNext}
+          handleBack={handleBack}
+          handleGoToCom={handleGoToCom}
+        />
+      );
     case 5:
       return <ThankYou />;
     default:

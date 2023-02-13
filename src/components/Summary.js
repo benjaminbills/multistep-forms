@@ -1,8 +1,12 @@
 import { useState, useContext } from 'react';
 import { FormContext } from '../Context/FormContext';
-const Summary = ({ handleBack }) => {
+const Summary = ({ handleBack, handleGoToCom }) => {
   const { formState, setFormState } = useContext(FormContext);
   const [confirm, setconfirm] = useState(false);
+  const goToPlans = () => {
+    console.log('clicked');
+    handleGoToCom(2);
+  };
   const total = () => {
     const allTot = formState.yearlyOrMonthly
       ? Number(formState.plans.yearlyValue)
@@ -38,7 +42,10 @@ const Summary = ({ handleBack }) => {
                   {formState.plans.name} (
                   {formState.yearlyOrMonthly ? 'Yearly' : 'Monthly'})
                 </p>
-                <button className='inline-flex contain underline text-coolgray'>
+                <button
+                  onClick={goToPlans}
+                  className='inline-flex contain underline text-coolgray'
+                >
                   Change
                 </button>
               </div>

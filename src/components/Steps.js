@@ -1,9 +1,15 @@
-const Steps = () => {
+const Steps = ({ activeIndex }) => {
   return (
     <div className='pl-8 pt-4'>
       <ul className='list-none uppercase'>
-        <li className='inline-flex items-center text-xs mt-6'>
-          <span className='flex items-center justify-center content-center h-[40px] w-[40px] border rounded-[50%] text-white'>
+        <li className='inline-flex items-center text-xs mt-6 '>
+          <span
+            className={`'flex items-center justify-center font-bold  content-center h-[40px] w-[40px] border rounded-[50%] ' ${
+              activeIndex === 1
+                ? 'flex items-center bg-lightblue text-black-900'
+                : 'flex items-center text-white'
+            }`}
+          >
             1
           </span>
           <span className='inline-flex pl-4 flex-col'>
@@ -12,7 +18,13 @@ const Steps = () => {
           </span>
         </li>
         <li className='inline-flex items-center text-xs mt-6'>
-          <span className='flex items-center justify-center content-center h-[40px] w-[40px] border rounded-[50%] text-white'>
+          <span
+            className={`'flex items-center justify-center font-bold content-center h-[40px] w-[40px] border rounded-[50%] '  ${
+              activeIndex === 2
+                ? 'flex items-center bg-lightblue text-black-900'
+                : 'flex items-center text-white'
+            }`}
+          >
             2
           </span>
           <span className='inline-flex pl-4 flex-col'>
@@ -21,7 +33,13 @@ const Steps = () => {
           </span>
         </li>
         <li className='inline-flex items-center text-xs mt-6'>
-          <span className='flex items-center justify-center content-center h-[40px] w-[40px] border rounded-[50%] text-white'>
+          <span
+            className={`'flex items-center justify-center font-bold  content-center h-[40px] w-[40px] border rounded-[50%] '  ${
+              activeIndex === 3
+                ? 'flex items-center bg-lightblue text-black-900'
+                : 'flex items-center text-white'
+            }`}
+          >
             3
           </span>
           <span className='inline-flex pl-4 flex-col'>
@@ -31,7 +49,13 @@ const Steps = () => {
         </li>
         <li className='items-center text-xs mt-6'>
           <p className='inline-flex'>
-            <span className='flex items-center justify-center content-center h-[40px] w-[40px] border rounded-[50%] text-white'>
+            <span
+              className={`'flex items-center justify-center font-bold  content-center h-[40px] w-[40px] border rounded-[50%] '  ${
+                activeIndex === 4
+                  ? 'flex items-center bg-lightblue'
+                  : 'flex items-center text-white'
+              }`}
+            >
               4
             </span>
             <span className='inline-flex pl-4 flex-col'>
