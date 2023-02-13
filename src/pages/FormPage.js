@@ -19,10 +19,10 @@ const FormPage = () => {
     <div className='w-full'>
       <div className='flex mx-auto my-auto pt-12'>
         <div className='flex border rounded-xl p-3 justify-center mx-auto my-auto bg-white '>
-          <div className=' bg-[url("/public/assets/images/bg-sidebar-desktop.svg")] h-[568px] w-[274px]'>
+          <div className=' bg-[url("/public/assets/images/bg-sidebar-desktop.svg")] h-[568px] min-w-[274px]'>
             <Steps activeIndex={step} />
           </div>
-          <div className='ml-[4em] mr-[4em] mt-8  mb-8 flex flex-col container w-[600px]'>
+          <div className='ml-[4em] mr-[4em] mt-8  mb-8 flex flex-col container max-w-[600px]'>
             <FormSteps
               step={step}
               handleNext={nextPage}

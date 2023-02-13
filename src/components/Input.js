@@ -27,7 +27,9 @@ const Input = ({
       </div>
       <input
         onChange={handleChange}
-        className='mt-2 focus:ring-1 text-marineblue font-semibold focus:ring-purplishblue focus:outline-none appearance-none w-full text-sm leading-6 text-slate-900 placeholder-slate-400 rounded-md py-2 pl-3 ring-1 ring-slate-200 shadow-sm'
+        className={`'mt-2 focus:ring-1 text-marineblue font-semibold  focus:outline-none appearance-none w-full text-sm leading-6 text-slate-900 placeholder-slate-400 rounded-md py-2 pl-3 ring-1 ring-slate-200 shadow-sm' ${
+          errorMessage ? 'focus:ring-red-500' : 'focus:ring-purplishblue'
+        }`}
         type={type}
         required={required}
         name={name}
