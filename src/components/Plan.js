@@ -86,7 +86,7 @@ const Plan = ({ handleNext, handleBack }) => {
     console.log(selectedPlan);
     const yearlyOrMonthly = !formState.yearlyOrMonthly;
     const plan = Object.assign({}, formState.plans);
-    !formState.yearlyOrMonthly
+    !yearlyOrMonthly
       ? (plan.amount = selectedPlan.monthlyValue)
       : (plan.amount = selectedPlan.yearlyValue);
     plan.name = selectedPlan.name;
