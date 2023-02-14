@@ -4,7 +4,7 @@ import FormPage from './pages/FormPage';
 function App() {
   return (
     <div className='h-screen flex bg-lightgray font-ubuntu'>
-      <div className='mx-auto sm:my-auto'>
+      <div className='w-full sm:mx-auto sm:my-auto'>
         <FormStateProvider>
           <FormPage />
         </FormStateProvider>
