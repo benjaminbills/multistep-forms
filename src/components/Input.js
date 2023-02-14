@@ -20,12 +20,15 @@ const Input = ({
   return (
     <div className='flex flex-col text-marineblue'>
       <div className='flex'>
-        <label className='text-sm'>{title}</label>
+        <label for={title} className='text-sm'>
+          {title}
+        </label>
         {/* {error && ( */}
         <p className='ml-auto text-red-500 text-sm '>{errorMessage}</p>
         {/* )} */}
       </div>
       <input
+        id={title}
         onChange={handleChange}
         className={`'mt-2 focus:ring-1 text-marineblue font-semibold  focus:outline-none appearance-none w-full text-sm leading-6 text-slate-900 placeholder-slate-400 rounded-md py-2 pl-3 ring-1 ring-slate-200 shadow-sm' ${
           errorMessage ? 'focus:ring-red-500' : 'focus:ring-purplishblue'
