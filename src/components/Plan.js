@@ -131,7 +131,7 @@ const Plan = ({ handleNext, handleBack }) => {
               onClick={() => handlePlanSelect(plan.id, plan.name)}
             />
             <label
-              className={`cursor-pointer flex sm:flex-col sm:p-4  border sm:h-[150px] min-w-[125px] rounded-lg p-2 ${
+              className={`cursor-pointer flex sm:flex-col sm:p-4  border sm:h-[150px] sm:min-w-[125px] rounded-lg p-2 ${
                 check(plan.id) ? 'checked bg-lightgray' : ''
               }`}
               htmlFor={plan.id}

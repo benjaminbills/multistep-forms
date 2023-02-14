@@ -18,7 +18,7 @@ module.exports = {
         ubuntu: ['Ubuntu'],
       },
       screens: {
-        sm: '600px',
+        sm: '760px',
       },
     },
   },
